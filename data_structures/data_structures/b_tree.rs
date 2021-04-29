@@ -112,19 +112,47 @@ impl<T> BTree<T>
         T: Ord + Copy + Debug + Default,
 {
     pub fn new(branch_factor: usize) -> Self {
-
+        let degree = 2 * branch_factor;
+        BTree {
+            root:Node::new(degree, None,None),
+            props: BTreeProps::new(degree),
+        }
     }
 
     pub fn insert(&mut self, key: T) {
-
+        if self.props.is_maxed_out(&self.root){
+            //empty root를 생성하고 old root를 나누기
+            let mut new_root = Node::new(self.props.degree, None, None);
+            mem::swap(&mut new_root, &mut self.root);
+            self.root.children.insert(0, new_root);
+            self.props.split_child(&mut self.root,0);
+        }
+        self.props.insert_non_full(&mut self.root, key);
     }
 
     pub fn traverse(&self) {
-
+        self.props.traverse_node(&self.root, 0);
+        println!();
     }
 
     pub fn search(&self, key: T) -> bool {
+        let mut current_node = &self.root;
+        let mut index: isize;
+        loop{
+            index = isize::try_from(current_node.keys.len()).ok().unwrap() -1;
+            while index >=0 && current_node.keys[index as usize]>key{
+                index -=1;
+            }
 
+            let u_index: usize = usoze::isize::try_from(index+1).ok().unwrap() ;
+            if index >=0 && current_node.keys[u_index-1] ==key {
+                break true;
+            }else if current_node.is_leaf(){
+                break false;
+            }else{
+                current_node = &current_node.children[u_index];
+            }
+        }
     }
 }
 
