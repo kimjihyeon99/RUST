@@ -22,7 +22,7 @@
   
   - 홀수 B-Tree
     
-  ![image](https://user-images.githubusercontent.com/44187194/116566281-986a3e00-a941-11eb-86f5-fca7141fa009.png)
+ <img src =https://user-images.githubusercontent.com/44187194/116566281-986a3e00-a941-11eb-86f5-fca7141fa009.png width="600" height="350">
    
   초기 삽입시에는 `root`노드를 생성
   
@@ -46,13 +46,13 @@
   
   예1)
  
-  ![image](https://user-images.githubusercontent.com/44187194/116567506-a7052500-a942-11eb-89a3-0c76626cb611.png)
+  <img src=https://user-images.githubusercontent.com/44187194/116567506-a7052500-a942-11eb-89a3-0c76626cb611.png width="600" height="350">
 
   `Leaf`노드를 삭제하는 경우, 데이터를 삭제하여도 조건 충족함.
 
   예2)
   
-  ![image](https://user-images.githubusercontent.com/44187194/116567559-b2f0e700-a942-11eb-92b8-f62942caeb38.png)
+   <img src=https://user-images.githubusercontent.com/44187194/116567559-b2f0e700-a942-11eb-92b8-f62942caeb38.png width="600" height="350">
 
   `Leaf`노드에서 1을 삭제하면 B-Tree 구조가 깨짐. 조건을 만족할때까지 merge 반복함.
   
@@ -60,8 +60,8 @@
 
   예1) 
   
-  ![image](https://user-images.githubusercontent.com/44187194/116567844-f4819200-a942-11eb-80d3-4f1fa90f31a8.png)
+  <img src= https://user-images.githubusercontent.com/44187194/116567844-f4819200-a942-11eb-80d3-4f1fa90f31a8.png width="600" height="350">
 
   예2)
   
-  ![image](https://user-images.githubusercontent.com/44187194/116567988-167b1480-a943-11eb-85dd-2b25ff726dfb.png)
+  <img src= https://user-images.githubusercontent.com/44187194/116567988-167b1480-a943-11eb-85dd-2b25ff726dfb.png width="600" height="350">
