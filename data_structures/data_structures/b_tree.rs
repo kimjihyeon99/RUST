@@ -67,7 +67,7 @@ impl BTreeProps {
             Some((_first, _others)) => {
                 _others.to_vec()
             },
-            None => Vec::with_capaticy(self.max_keys),
+            None => Vec::with_capacity(self.max_keys),
         };
         let right_children = if !child.is_leaf() {
             //leaf 노드가 아니면 splift_off 결과 반환??
@@ -144,7 +144,7 @@ impl<T> BTree<T>
                 index -=1;
             }
 
-            let u_index: usize = usoze::isize::try_from(index+1).ok().unwrap() ;
+            let u_index: usize = usize::try_from(index + 1).ok().unwrap();
             if index >=0 && current_node.keys[u_index-1] ==key {
                 break true;
             }else if current_node.is_leaf(){
